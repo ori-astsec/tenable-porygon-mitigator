@@ -1,0 +1,88 @@
+{
+ "display_name": "Lab router",
+ "hostname": "router-56",
+ "routes": [
+  {
+   "destination": "10.95.165.156/32",
+   "nexthop_device": null,
+   "zone": "linux-servers"
+  },
+  {
+   "destination": "10.95.165.127/32",
+   "nexthop_device": null,
+   "zone": "windows-servers"
+  },
+  {
+   "destination": "10.95.165.133/32",
+   "nexthop_device": null,
+   "zone": "windows-servers"
+  },
+  {
+   "destination": "10.95.165.119/32",
+   "nexthop_device": null,
+   "zone": "linux-servers"
+  },
+  {
+   "destination": "10.95.165.195/32",
+   "nexthop_device": null,
+   "zone": "workstations"
+  },
+  {
+   "destination": "10.95.165.16/32",
+   "nexthop_device": null,
+   "zone": "windows-servers"
+  },
+  {
+   "destination": "10.95.165.212/32",
+   "nexthop_device": null,
+   "zone": "workstations"
+  },
+  {
+   "destination": "10.197.164.112/32",
+   "nexthop_device": null,
+   "zone": "linux-servers"
+  }
+ ],
+ "zones": [
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Firewall to router",
+   "interfaces": [
+    "ethernet1/1"
+   ],
+   "kind": "unknown",
+   "name": "transit"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Windows servers",
+   "interfaces": [
+    "ethernet1/2"
+   ],
+   "kind": "server",
+   "name": "windows-servers"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Workstations",
+   "interfaces": [
+    "ethernet1/3"
+   ],
+   "kind": "corp",
+   "name": "workstations"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Linux servers",
+   "interfaces": [
+    "ethernet1/4"
+   ],
+   "kind": "server",
+   "name": "linux-servers"
+  }
+ ]
+}

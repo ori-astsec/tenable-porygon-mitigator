@@ -1,0 +1,23 @@
+{
+  "name": "pa-edge-fw-1",
+  "os": {
+    "platform": "network_os",
+    "name": "PAN-OS 10.2.8",
+    "version": "10.2.8",
+    "distribution": "panos"
+  },
+  "vendor": "Palo Alto Networks",
+  "roles": ["firewall", "vpn_gateway"],
+  "installed_software": [],
+  "open_ports": [
+    {"port": 443, "protocol": "tcp", "service_names": ["https", "globalprotect"], "internet_exposed": true}
+  ],
+  "internet_exposed": true,
+  "network_path": [],
+  "security_tools": [],
+  "findings": [],
+  "config_state": {
+    "app_settings": {"panos:globalprotect_gateway": "enabled", "panos:device_telemetry": "enabled"}
+  },
+  "source": "manual"
+}

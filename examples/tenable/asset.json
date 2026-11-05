@@ -1,0 +1,22 @@
+{
+  "id": "0b7c4d2e-5f1a-4c8e-9a3b-6d2f1e8c7a90",
+  "name": "bastion-01.example.internal",
+  "operating_systems": ["Linux Kernel 5.15.0-105-generic on Ubuntu 22.04"],
+  "installed_software": [
+    "cpe:/a:openbsd:openssh:8.9p1",
+    "cpe:/a:openssl:openssl:3.0.2",
+    "cpe:/a:sudo_project:sudo:1.9.9",
+    "cpe:/a:crowdstrike:falcon_sensor:7.10"
+  ],
+  "network": {
+    "fqdns": ["bastion-01.example.internal"],
+    "ipv4s": ["198.51.100.20"],
+    "open_ports": [
+      {"port": 22, "protocol": "TCP", "service_names": ["ssh"]}
+    ]
+  },
+  "is_public": true,
+  "system_types": ["general-purpose"],
+  "sources": [{"name": "NESSUS_AGENT"}, {"name": "CROWDSTRIKE"}],
+  "_note": "Synthetic record in the shape of a Tenable asset export (v2). Not real data."
+}

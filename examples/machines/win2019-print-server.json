@@ -1,0 +1,28 @@
+{
+  "name": "PRN-SRV-02",
+  "os": {
+    "platform": "windows",
+    "name": "Microsoft Windows Server 2019 Standard",
+    "version": "10.0.17763.1999",
+    "distribution": "windows"
+  },
+  "roles": ["print_server", "domain_member"],
+  "installed_software": [],
+  "open_ports": [
+    {"port": 445, "protocol": "tcp", "service_names": ["microsoft-ds"], "internet_exposed": false},
+    {"port": 135, "protocol": "tcp", "service_names": ["msrpc"], "internet_exposed": false}
+  ],
+  "internet_exposed": false,
+  "network_path": [],
+  "security_tools": [
+    {"category": "edr", "vendor": "Microsoft", "product": "Defender for Endpoint"}
+  ],
+  "findings": [
+    {"cve": "CVE-2021-34527", "source": "tenable", "port": 445, "protocol": "tcp"}
+  ],
+  "config_state": {
+    "services": {"spooler": "running"},
+    "registry": {}
+  },
+  "source": "manual"
+}

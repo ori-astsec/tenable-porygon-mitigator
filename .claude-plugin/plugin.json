@@ -1,0 +1,17 @@
+{
+  "name": "porygon-mitigator",
+  "version": "0.1.0",
+  "description": "Verified, machine-specific compensating controls for CVEs you can't patch yet: an agent that walks a simulated network from scan to verified change, an MCP server and analyst workflow skills.",
+  "author": {
+    "name": "Team Porygon contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "cve",
+    "mitigation",
+    "compensating-controls",
+    "vulnerability-management",
+    "tenable",
+    "mcp"
+  ]
+}

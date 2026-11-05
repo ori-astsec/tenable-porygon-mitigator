@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Admin RDP to dc-2c52",
+    "source_zone": "admin",
+    "host": "dc-2c52",
+    "sessions": 86
+  },
+  {
+    "name": "Public DNS",
+    "source_zone": "internet",
+    "host": "dc-2c52",
+    "sessions": 6100
+  },
+  {
+    "name": "Public website",
+    "source_zone": "internet",
+    "host": "ubu-8ced",
+    "sessions": 9300
+  },
+  {
+    "name": "Remote SQL access",
+    "source_zone": "internet",
+    "host": "sql-647e",
+    "sessions": 410
+  },
+  {
+    "name": "SIGRed attempts",
+    "source_zone": "internet",
+    "host": "dc-2c52",
+    "sessions": 12,
+    "threat_ids": [
+      "58691"
+    ]
+  },
+  {
+    "name": "BlueKeep attempts",
+    "source_zone": "internet",
+    "host": "dc-2c52",
+    "sessions": 27,
+    "threat_ids": [
+      "55815"
+    ]
+  }
+]

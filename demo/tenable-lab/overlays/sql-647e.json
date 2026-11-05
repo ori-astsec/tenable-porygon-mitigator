@@ -1,0 +1,18 @@
+{
+  "network_path": [
+    {
+      "role": "ngfw",
+      "vendor": "Palo Alto Networks",
+      "product": "PA-820",
+      "version": "11.1.1",
+      "capabilities": [
+        "threat_prevention"
+      ]
+    },
+    {
+      "role": "router",
+      "vendor": "unknown",
+      "product": "lab router"
+    }
+  ]
+}

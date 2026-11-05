@@ -1,0 +1,90 @@
+{
+ "hosts": [
+  {
+   "asset_id": null,
+   "gateway": null,
+   "host": "web-01",
+   "ips": [
+    "192.0.2.10"
+   ],
+   "zone": null
+  },
+  {
+   "asset_id": null,
+   "gateway": null,
+   "host": "bastion-01",
+   "ips": [
+    "192.0.2.20"
+   ],
+   "zone": null
+  },
+  {
+   "asset_id": null,
+   "gateway": null,
+   "host": "dc-01",
+   "ips": [
+    "203.0.113.10"
+   ],
+   "zone": null
+  },
+  {
+   "asset_id": null,
+   "gateway": null,
+   "host": "print-01",
+   "ips": [
+    "203.0.113.20"
+   ],
+   "zone": null
+  },
+  {
+   "asset_id": null,
+   "gateway": null,
+   "host": "hr-01",
+   "ips": [
+    "198.51.100.10"
+   ],
+   "zone": null
+  },
+  {
+   "asset_id": null,
+   "gateway": null,
+   "host": "fin-01",
+   "ips": [
+    "198.51.100.20"
+   ],
+   "zone": null
+  },
+  {
+   "asset_id": null,
+   "gateway": null,
+   "host": "sw-01",
+   "ips": [
+    "198.51.100.30"
+   ],
+   "zone": null
+  }
+ ],
+ "network_events": [
+  {
+   "application": "Office printing",
+   "host": "print-01",
+   "service": "spooler",
+   "sessions_30d": 2750,
+   "source_zone": "corp"
+  },
+  {
+   "application": "Corporate DNS",
+   "host": "dc-01",
+   "service": null,
+   "sessions_30d": 1955,
+   "source_zone": "corp"
+  },
+  {
+   "application": "Public website",
+   "host": "web-01",
+   "service": null,
+   "sessions_30d": 4730,
+   "source_zone": "internet"
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "ns-vpx-edge-1",
+  "os": {
+    "platform": "network_os",
+    "name": "NetScaler ADC 13.1",
+    "version": "13.1-48.47",
+    "distribution": "netscaler"
+  },
+  "vendor": "Citrix",
+  "roles": ["gateway", "load_balancer"],
+  "installed_software": [],
+  "open_ports": [
+    {"port": 443, "protocol": "tcp", "service_names": ["https", "netscaler-gateway"], "internet_exposed": true}
+  ],
+  "internet_exposed": true,
+  "network_path": [],
+  "security_tools": [],
+  "findings": [],
+  "config_state": null,
+  "source": "manual"
+}

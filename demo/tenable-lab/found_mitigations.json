@@ -1,0 +1,38 @@
+[
+ {
+  "id": "found-m_b9a34b7d1017",
+  "title": "Disable write support on Tomcat default servlet",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2025-24813"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "tomcat:default_servlet_readonly=true",
+  "os": null,
+  "risk": 2,
+  "side_effects": "",
+  "rollback": "Restore the previous configuration value and reload the service.",
+  "source_url": "https://security-tracker.debian.org/tracker/CVE-2025-24813",
+  "note": ""
+ },
+ {
+  "id": "found-m_d2b148431e60",
+  "title": "Disable partial PUT support in Tomcat",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2025-24813"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "tomcat:default_servlet_allowpartialput=false",
+  "os": null,
+  "risk": 2,
+  "side_effects": "",
+  "rollback": "Restore the previous configuration value and reload the service.",
+  "source_url": "https://security-tracker.debian.org/tracker/CVE-2025-24813",
+  "note": ""
+ }
+]

@@ -1,0 +1,57 @@
+# Gold labels for `porygon tag`, written by hand from each CVE's public advisory and record (CVE.org, NVD, vendor
+# bulletin). Nothing here comes from a scanner's or anyone else's classification.
+#
+# class:      every acceptable answer. Two are listed where the public record supports both (an SMB driver flaw is a
+#             listening service and kernel code). Leaving the class empty is never wrong, only less useful.
+# processes:  any one of these counts as naming the right process (lower case; `.exe` optional when grading).
+# protocols:  any one of these counts as naming the right protocol.
+# split:      train cases may shape the prompt; test cases are only scored at the end.
+
+cases:
+  # Listening services
+  - {cve: CVE-2020-1350, split: train, class: [server], processes: [dns.exe], protocols: [dns]}
+  - {cve: CVE-2019-0708, split: test, class: [server], processes: [svchost.exe, termdd.sys, termsrv.dll], protocols: [rdp]}
+  - {cve: CVE-2021-44228, split: train, class: [server], processes: [java], protocols: [ldap, jndi, http]}
+  - {cve: CVE-2017-0144, split: test, class: [server, kernel], processes: [srv.sys, system], protocols: [smb, smbv1]}
+  - {cve: CVE-2020-0796, split: train, class: [server, kernel], processes: [srv2.sys, system], protocols: [smb, smbv3, smbv3.1.1]}
+  - {cve: CVE-2021-34527, split: test, class: [server, local], processes: [spoolsv.exe], protocols: [rpc, smb, ms-rprn]}
+  - {cve: CVE-2020-1472, split: train, class: [server], processes: [lsass.exe, netlogon], protocols: [netlogon, ms-nrpc, rpc]}
+  - {cve: CVE-2021-26855, split: test, class: [server], processes: [w3wp.exe, msexchange], protocols: [http, https]}
+  - {cve: CVE-2021-41773, split: train, class: [server], processes: [httpd, apache2], protocols: [http]}
+  - {cve: CVE-2022-22965, split: test, class: [server], processes: [java, tomcat], protocols: [http]}
+  - {cve: CVE-2022-26134, split: train, class: [server], processes: [java], protocols: [http]}
+  - {cve: CVE-2019-19781, split: test, class: [server], processes: [], protocols: [http, https]}
+  - {cve: CVE-2020-5902, split: train, class: [server], processes: [], protocols: [http, https]}
+  - {cve: CVE-2017-5638, split: test, class: [server], processes: [java], protocols: [http]}
+  - {cve: CVE-2024-6387, split: train, class: [server], processes: [sshd], protocols: [ssh]}
+  - {cve: CVE-2025-32433, split: test, class: [server], processes: [beam.smp, erl], protocols: [ssh]}
+  - {cve: CVE-2020-1938, split: train, class: [server], processes: [java, tomcat], protocols: [ajp]}
+  - {cve: CVE-2022-34721, split: test, class: [server], processes: [svchost.exe, ikeext.dll], protocols: [ike, ikev1, ipsec]}
+  - {cve: CVE-2023-34362, split: train, class: [server], processes: [w3wp.exe], protocols: [http, https]}
+  - {cve: CVE-2021-21972, split: test, class: [server], processes: [], protocols: [http, https]}
+  - {cve: CVE-2019-11510, split: train, class: [server], processes: [], protocols: [http, https]}
+  # Kernel network stack
+  - {cve: CVE-2022-21907, split: test, class: [kernel, server], processes: [http.sys, system], protocols: [http]}
+  - {cve: CVE-2024-38063, split: train, class: [kernel], processes: [tcpip.sys], protocols: [ipv6]}
+  - {cve: CVE-2021-24074, split: test, class: [kernel], processes: [tcpip.sys], protocols: [ipv4, ip]}
+  # A user or client program opens something
+  - {cve: CVE-2018-8653, split: train, class: [client], processes: [iexplore.exe], protocols: []}
+  - {cve: CVE-2022-30190, split: test, class: [client], processes: [msdt.exe, winword.exe], protocols: []}
+  - {cve: CVE-2023-4863, split: train, class: [client], processes: [chrome, chrome.exe], protocols: []}
+  - {cve: CVE-2017-11882, split: test, class: [client], processes: [eqnedt32.exe], protocols: []}
+  - {cve: CVE-2018-15982, split: train, class: [client], processes: [], protocols: []}
+  - {cve: CVE-2023-38831, split: test, class: [client], processes: [winrar.exe], protocols: []}
+  - {cve: CVE-2021-40444, split: train, class: [client], processes: [winword.exe, iexplore.exe], protocols: []}
+  - {cve: CVE-2023-23397, split: test, class: [client], processes: [outlook.exe], protocols: [smb, ntlm]}
+  - {cve: CVE-2013-3900, split: train, class: [client, local], processes: [], protocols: []}
+  # Local access or privilege escalation
+  - {cve: CVE-2021-4034, split: test, class: [local], processes: [pkexec], protocols: []}
+  - {cve: CVE-2021-3156, split: train, class: [local], processes: [sudo], protocols: []}
+  - {cve: CVE-2022-0847, split: test, class: [local], processes: [], protocols: []}
+  - {cve: CVE-2016-5195, split: train, class: [local], processes: [], protocols: []}
+  - {cve: CVE-2021-36934, split: test, class: [local], processes: [], protocols: []}
+  - {cve: CVE-2023-28252, split: train, class: [local], processes: [clfs.sys], protocols: []}
+  - {cve: CVE-2018-8453, split: test, class: [local], processes: [win32k.sys], protocols: []}
+  - {cve: CVE-2023-4911, split: train, class: [local], processes: [ld.so, ld-linux.so], protocols: []}
+  - {cve: CVE-2021-22555, split: test, class: [local], processes: [], protocols: []}
+  - {cve: CVE-2024-1086, split: train, class: [local], processes: [], protocols: []}

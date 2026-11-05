@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Office printing",
+    "source_zone": "corp",
+    "host": "print-01",
+    "sessions": 1240
+  },
+  {
+    "name": "Corporate DNS",
+    "source_zone": "corp",
+    "host": "dc-01",
+    "sessions": 5210
+  },
+  {
+    "name": "Public website",
+    "source_zone": "internet",
+    "host": "web-01",
+    "sessions": 8800
+  },
+  {
+    "name": "SIGRed attempts",
+    "source_zone": "internet",
+    "host": "dc-01",
+    "sessions": 12,
+    "threat_ids": [
+      "58691"
+    ]
+  },
+  {
+    "name": "Public DNS lookups",
+    "source_zone": "internet",
+    "host": "dc-01",
+    "sessions": 640
+  }
+]

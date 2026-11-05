@@ -1,0 +1,231 @@
+{
+ "address_objects": {
+  "addr-dc-2c52": {
+   "ip_netmask": "10.95.165.127/32"
+  },
+  "addr-sql-647e": {
+   "ip_netmask": "10.95.165.133/32"
+  },
+  "addr-srv-2539": {
+   "ip_netmask": "10.95.165.16/32"
+  },
+  "addr-ubu-8ced": {
+   "ip_netmask": "10.95.165.119/32"
+  }
+ },
+ "display_name": "Palo Alto PA-820 (placement simulated)",
+ "hostname": "fw-1",
+ "security_rules": [
+  {
+   "action": "allow",
+   "application": [
+    "dns"
+   ],
+   "destination": [
+    "addr-dc-2c52"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "publish-dns",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "transit"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "web-browsing"
+   ],
+   "destination": [
+    "addr-ubu-8ced"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "publish-web",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "transit"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ipsec"
+   ],
+   "destination": [
+    "addr-srv-2539"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "publish-ike",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "transit"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ms-rdp"
+   ],
+   "destination": [
+    "addr-dc-2c52"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "remote-rdp",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "transit"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "mssql-db"
+   ],
+   "destination": [
+    "addr-sql-647e"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "remote-sql",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "transit"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "any"
+   ],
+   "destination": [
+    "any"
+   ],
+   "from": [
+    "admin"
+   ],
+   "name": "admin-access",
+   "service": [
+    "any"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "transit"
+   ]
+  },
+  {
+   "action": "deny",
+   "application": [
+    "any"
+   ],
+   "destination": [
+    "any"
+   ],
+   "from": [
+    "any"
+   ],
+   "name": "deny-rest",
+   "service": [
+    "any"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "any"
+   ]
+  }
+ ],
+ "service_objects": {},
+ "sw_version": "11.1.1",
+ "threat_prevention_license": true,
+ "type": "PaloAltoNGFW",
+ "virtual_router": {
+  "name": "default",
+  "routes": [
+   {
+    "destination": "10.197.164.0/24",
+    "nexthop_device": "router-56",
+    "zone": null
+   },
+   {
+    "destination": "10.95.165.0/24",
+    "nexthop_device": "router-56",
+    "zone": null
+   },
+   {
+    "destination": "0.0.0.0/0",
+    "nexthop_device": null,
+    "zone": "internet"
+   }
+  ]
+ },
+ "vulnerability_profiles": {},
+ "zones": [
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Internet",
+   "interfaces": [
+    "ethernet1/1"
+   ],
+   "kind": "internet",
+   "name": "internet"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "IT admins",
+   "interfaces": [
+    "ethernet1/2"
+   ],
+   "kind": "management",
+   "name": "admin"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Firewall to router",
+   "interfaces": [
+    "ethernet1/3"
+   ],
+   "kind": "unknown",
+   "name": "transit"
+  }
+ ]
+}

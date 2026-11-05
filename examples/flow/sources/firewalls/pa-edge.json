@@ -1,0 +1,212 @@
+{
+ "address_objects": {
+  "addr-bastion-01": {
+   "ip_netmask": "192.0.2.20/32"
+  },
+  "addr-dc-01": {
+   "ip_netmask": "203.0.113.10/32"
+  },
+  "addr-print-01": {
+   "ip_netmask": "203.0.113.20/32"
+  },
+  "addr-web-01": {
+   "ip_netmask": "192.0.2.10/32"
+  }
+ },
+ "display_name": "Edge firewall",
+ "hostname": "pa-edge",
+ "security_rules": [
+  {
+   "action": "allow",
+   "application": [
+    "ssl"
+   ],
+   "destination": [
+    "addr-web-01"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "web-published",
+   "service": [
+    "application-default",
+    "svc-tcp-8080"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "dmz"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ssh"
+   ],
+   "destination": [
+    "addr-bastion-01"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "bastion-admin",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "dmz"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "dns"
+   ],
+   "destination": [
+    "addr-dc-01"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "dns-published",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "dmz"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ms-rdp"
+   ],
+   "destination": [
+    "addr-dc-01"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "temp-rdp",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "dmz"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ms-ds-smb"
+   ],
+   "destination": [
+    "addr-print-01"
+   ],
+   "from": [
+    "internet"
+   ],
+   "name": "legacy-smb",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "dmz"
+   ]
+  },
+  {
+   "action": "deny",
+   "application": [
+    "any"
+   ],
+   "destination": [
+    "any"
+   ],
+   "from": [
+    "any"
+   ],
+   "name": "deny-rest",
+   "service": [
+    "any"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "any"
+   ]
+  }
+ ],
+ "service_objects": {
+  "svc-tcp-8080": {
+   "port": "8080",
+   "protocol": "tcp"
+  }
+ },
+ "sw_version": "11.1.4",
+ "threat_prevention_license": true,
+ "type": "PaloAltoNGFW",
+ "virtual_router": {
+  "name": "default",
+  "routes": [
+   {
+    "destination": "192.0.2.0/25",
+    "nexthop_device": null,
+    "zone": "dmz"
+   },
+   {
+    "destination": "198.51.100.0/25",
+    "nexthop_device": "pa-core",
+    "zone": null
+   },
+   {
+    "destination": "203.0.113.0/25",
+    "nexthop_device": "pa-core",
+    "zone": null
+   },
+   {
+    "destination": "0.0.0.0/0",
+    "nexthop_device": null,
+    "zone": "internet"
+   }
+  ]
+ },
+ "vulnerability_profiles": {},
+ "zones": [
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Internet",
+   "interfaces": [
+    "ethernet1/1"
+   ],
+   "kind": "internet",
+   "name": "internet"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [
+    "192.0.2.0/25"
+   ],
+   "display_name": "DMZ",
+   "interfaces": [
+    "ethernet1/2"
+   ],
+   "kind": "dmz",
+   "name": "dmz"
+  }
+ ]
+}

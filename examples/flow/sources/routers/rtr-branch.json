@@ -1,0 +1,40 @@
+{
+ "display_name": "Branch router",
+ "hostname": "rtr-branch",
+ "routes": [
+  {
+   "destination": "198.51.100.128/25",
+   "nexthop_device": null,
+   "zone": "branch"
+  },
+  {
+   "destination": "0.0.0.0/0",
+   "nexthop_device": "pa-core",
+   "zone": null
+  }
+ ],
+ "zones": [
+  {
+   "attacker_vantage": null,
+   "cidrs": [
+    "198.51.100.0/25"
+   ],
+   "display_name": "Corporate",
+   "interfaces": [
+    "ethernet1/1"
+   ],
+   "kind": "corp",
+   "name": "corp"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [],
+   "display_name": "Branch office",
+   "interfaces": [
+    "ethernet1/2"
+   ],
+   "kind": "corp",
+   "name": "branch"
+  }
+ ]
+}

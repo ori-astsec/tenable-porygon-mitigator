@@ -1,0 +1,75 @@
+"""Pydantic models shared by the pipeline, the cache, the matcher and the interfaces."""
+
+from porygon_mitigator.models.actions import ActionKind, normalize_action, vendor_key
+from porygon_mitigator.models.assessment import (
+    AffectednessResult,
+    CacheInfo,
+    MachineAssessment,
+    MitigationAssessment,
+)
+from porygon_mitigator.models.cve import (
+    AffectedRange,
+    CveFacts,
+    CveRecord,
+    Cvss,
+    GenerationCost,
+    KevInfo,
+    PipelineInfo,
+    Reference,
+    SourceRecord,
+)
+from porygon_mitigator.models.machine import (
+    ConfigState,
+    Finding,
+    MachineProfile,
+    NetworkDevice,
+    OpenPort,
+    OSInfo,
+    SecurityTool,
+    Software,
+)
+from porygon_mitigator.models.mitigation import (
+    Action,
+    AppliesTo,
+    Evidence,
+    Mitigation,
+    Note,
+    Remediation,
+    Step,
+    mitigation_id,
+)
+
+__all__ = [
+    "Action",
+    "ActionKind",
+    "AffectedRange",
+    "AffectednessResult",
+    "AppliesTo",
+    "CacheInfo",
+    "ConfigState",
+    "CveFacts",
+    "CveRecord",
+    "Cvss",
+    "Evidence",
+    "Finding",
+    "GenerationCost",
+    "KevInfo",
+    "MachineAssessment",
+    "MachineProfile",
+    "Mitigation",
+    "MitigationAssessment",
+    "NetworkDevice",
+    "Note",
+    "OSInfo",
+    "OpenPort",
+    "PipelineInfo",
+    "Reference",
+    "Remediation",
+    "SecurityTool",
+    "Software",
+    "SourceRecord",
+    "Step",
+    "mitigation_id",
+    "normalize_action",
+    "vendor_key",
+]

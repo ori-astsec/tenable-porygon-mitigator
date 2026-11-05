@@ -1,0 +1,106 @@
+{
+ "hosts": [
+  {
+   "asset_id": "665ac92f-9986-4675-bb96-98d039a9b4e8",
+   "gateway": "10.95.165.1",
+   "host": "cent-fa5b",
+   "ips": [
+    "10.95.165.156"
+   ],
+   "zone": "linux-servers"
+  },
+  {
+   "asset_id": "09a4fd57-dcad-45b3-80ed-d034b58bbb23",
+   "gateway": null,
+   "host": "dc-2c52",
+   "ips": [
+    "10.95.165.127"
+   ],
+   "zone": "windows-servers"
+  },
+  {
+   "asset_id": "078f9bc5-4852-4b9d-83d9-d7ad7088cbce",
+   "gateway": null,
+   "host": "sql-647e",
+   "ips": [
+    "10.95.165.133"
+   ],
+   "zone": "windows-servers"
+  },
+  {
+   "asset_id": "4230ae64-641d-4067-a423-860ff6a5aa28",
+   "gateway": "10.95.165.1",
+   "host": "ubu-8ced",
+   "ips": [
+    "10.95.165.119"
+   ],
+   "zone": "linux-servers"
+  },
+  {
+   "asset_id": "8d065499-6686-4b20-9aea-0e3813559968",
+   "gateway": null,
+   "host": "wks-7705",
+   "ips": [
+    "10.95.165.195"
+   ],
+   "zone": "workstations"
+  },
+  {
+   "asset_id": "cbb70b43-0177-4a32-8d1f-d205c574da22",
+   "gateway": null,
+   "host": "srv-2539",
+   "ips": [
+    "10.95.165.16"
+   ],
+   "zone": "windows-servers"
+  },
+  {
+   "asset_id": "2bdbbeaf-e031-4565-a055-b98d7a524f26",
+   "gateway": null,
+   "host": "wks-90cc",
+   "ips": [
+    "10.95.165.212"
+   ],
+   "zone": "workstations"
+  },
+  {
+   "asset_id": "f70fd29a-b011-4aac-adf1-f3736abf547d",
+   "gateway": "10.197.164.1",
+   "host": "ubu-a393",
+   "ips": [
+    "10.197.164.112"
+   ],
+   "zone": "linux-servers"
+  }
+ ],
+ "network_events": [
+  {
+   "application": "Admin RDP to dc-2c52",
+   "host": "dc-2c52",
+   "service": null,
+   "sessions_30d": 498,
+   "source_zone": "admin"
+  },
+  {
+   "application": "Public DNS",
+   "host": "dc-2c52",
+   "service": null,
+   "sessions_30d": 2676,
+   "source_zone": "internet"
+  },
+  {
+   "application": "Public website",
+   "host": "ubu-8ced",
+   "service": null,
+   "sessions_30d": 4730,
+   "source_zone": "internet"
+  },
+  {
+   "application": "Remote SQL access",
+   "host": "sql-647e",
+   "service": null,
+   "sessions_30d": 1896,
+   "source_zone": "internet"
+  }
+ ]
+}

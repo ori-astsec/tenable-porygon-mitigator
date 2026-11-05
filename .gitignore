@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+
+# Secrets and local configuration (never commit)
+.env
+.env.*
+*.pem
+*.key
+
+# Local caches: fetched advisory text, eval source snapshots, catalogue downloads
+.cache/
+
+# Per-machine results and Tenable data (machine data stays local)
+output/
+
+# OS / editor noise
+.DS_Store
+.idea/
+.vscode/
+
+# The lab environment holds the Tenable lab findings; build_flow.py writes it locally and it is never committed
+demo/tenable-lab/flow/environment.json

@@ -1,0 +1,628 @@
+[
+ {
+  "id": "host-cve-2019-0708",
+  "title": "Enable Network Level Authentication",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2019-0708"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "Enable Network Level Authentication",
+  "os": "Windows",
+  "risk": 2,
+  "side_effects": "Read the source before applying: its effect depends on how this machine is used.",
+  "rollback": "Reverse the setting, as the source describes.",
+  "source_url": "https://www.bleepingcomputer.com/news/security/remote-desktop-zero-day-bug-allows-attackers-to-hijack-sessions",
+  "note": ""
+ },
+ {
+  "id": "host-cve-2020-1350",
+  "title": "Set Registry Key to Limit DNS TCP Receive Size / Set DNS TcpReceivePacketSize Limit",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2020-1350"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "Set Registry Key to Limit DNS TCP Receive Size / Set DNS TcpReceivePacketSize Limit",
+  "os": "Windows",
+  "risk": 2,
+  "side_effects": "Read the source before applying: its effect depends on how this machine is used.",
+  "rollback": "Reverse the setting, as the source describes.",
+  "source_url": "https://www.sentinelone.com/vulnerability-database/cve-2020-1350",
+  "note": ""
+ },
+ {
+  "id": "host-cve-2021-34527",
+  "title": "Configure PointAndPrint/Secure Print Spooler Registry Settings",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2021-34527"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "Configure PointAndPrint/Secure Print Spooler Registry Settings",
+  "os": "Windows",
+  "risk": 2,
+  "side_effects": "Read the source before applying: its effect depends on how this machine is used.",
+  "rollback": "Reverse the setting, as the source describes.",
+  "source_url": "https://unit42.paloaltonetworks.com/vice-society-targets-education-sector",
+  "note": ""
+ },
+ {
+  "id": "host-cve-2021-36942",
+  "title": "Enable EPA and Disable NTLM/EFSRPC on AD CS Servers",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2021-36942"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "Enable EPA and Disable NTLM/EFSRPC on AD CS Servers",
+  "os": "Windows",
+  "risk": 2,
+  "side_effects": "Read the source before applying: its effect depends on how this machine is used.",
+  "rollback": "Reverse the setting, as the source describes.",
+  "source_url": "https://unit42.paloaltonetworks.com/authentication-coercion",
+  "note": ""
+ },
+ {
+  "id": "host-cve-2021-42278",
+  "title": "Set Machine Account Quota to Zero",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2021-42278"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "Set Machine Account Quota to Zero",
+  "os": "Windows",
+  "risk": 2,
+  "side_effects": "Read the source before applying: its effect depends on how this machine is used.",
+  "rollback": "Reverse the setting, as the source describes.",
+  "source_url": "https://www.sentinelone.com/vulnerability-database/cve-2021-42278",
+  "note": ""
+ },
+ {
+  "id": "host-cve-2021-44228",
+  "title": "Remove JndiLookup Class from Log4j Core",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2021-44228"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "Remove JndiLookup Class from Log4j Core",
+  "os": "Linux",
+  "risk": 2,
+  "side_effects": "Read the source before applying: its effect depends on how this machine is used.",
+  "rollback": "Reverse the setting, as the source describes.",
+  "source_url": "https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/Security-Advisory-CVE-2021-44228-log4j-vulnerability-and-Broadcom-CA-APM/19823",
+  "note": ""
+ },
+ {
+  "id": "host-cve-2023-44487",
+  "title": "Disable HTTP/2 Protocol via Registry",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2023-44487"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "Disable HTTP/2 Protocol via Registry",
+  "os": "Windows",
+  "risk": 2,
+  "side_effects": "Read the source before applying: its effect depends on how this machine is used.",
+  "rollback": "Reverse the setting, as the source describes.",
+  "source_url": "https://msrc.microsoft.com/update-guide/vulnerability/cve-2023-44487",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2014-1812",
+  "title": "Block CVE-2014-1812 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2014-1812"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "90128"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2014-1812#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2019-0708",
+  "title": "Block CVE-2019-0708 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2019-0708"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "55815"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2020-0601",
+  "title": "Block CVE-2020-0601 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2020-0601"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "57603"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2020-0601#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2020-0646",
+  "title": "Block CVE-2020-0646 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2020-0646"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "57656"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2020-1147",
+  "title": "Block CVE-2020-1147 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2020-1147"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "58990",
+   "58991",
+   "59149"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2020-1147#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2020-1350",
+  "title": "Block CVE-2020-1350 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2020-1350"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "58691",
+   "59168",
+   "92191"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2020-1472",
+  "title": "Block CVE-2020-1472 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2020-1472"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "59336"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2020-1472#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2021-31166",
+  "title": "Block CVE-2021-31166 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2021-31166"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "91104",
+   "91126",
+   "91146",
+   "91166"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2021-34527",
+  "title": "Block CVE-2021-34527 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2021-34527"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "91333",
+   "91346",
+   "91349",
+   "91418",
+   "91419",
+   "96838"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2021-34527#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2021-36942",
+  "title": "Block CVE-2021-36942 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2021-36942"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "91428"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2021-36942#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2021-42278",
+  "title": "Block CVE-2021-42278 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2021-42278"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "92192"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2021-42278#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2021-42287",
+  "title": "Block CVE-2021-42287 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2021-42287"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "92192",
+   "96297"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2021-42287#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2021-44228",
+  "title": "Block CVE-2021-44228 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2021-44228"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "91991",
+   "91994",
+   "91995",
+   "92001",
+   "92004",
+   "92046",
+   "92943"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2021-45046",
+  "title": "Block CVE-2021-45046 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2021-45046"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "91991",
+   "91994",
+   "91995",
+   "92001",
+   "92007"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2021-45046#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2022-26923",
+  "title": "Block CVE-2022-26923 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2022-26923"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "92548"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2022-26923#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2023-44487",
+  "title": "Block CVE-2023-44487 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2023-44487"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "40152"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2023-44487#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2024-29059",
+  "title": "Block CVE-2024-29059 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2024-29059"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "96013"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2025-24813",
+  "title": "Block CVE-2025-24813 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2025-24813"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "96079",
+   "96676"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-web_specific_apps.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2026-111497",
+  "title": "Block CVE-2026-111497 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2026-111497"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "97686"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2026-111497#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2026-33824",
+  "title": "Block CVE-2026-33824 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2026-33824"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "97177"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2026-34486",
+  "title": "Block CVE-2026-34486 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2026-34486"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "97251"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://rules.emergingthreats.net/open/snort-2.9.0/rules/emerging-exploit.rules#PaloAltoNGFW",
+  "note": ""
+ },
+ {
+  "id": "palo-cve-2026-96951",
+  "title": "Block CVE-2026-96951 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2026-96951"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "97569"
+  ],
+  "service": null,
+  "setting": null,
+  "os": null,
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2026-96951#vulnerability-protection",
+  "note": ""
+ },
+ {
+  "id": "found-m_b9a34b7d1017",
+  "title": "Disable write support on Tomcat default servlet",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2025-24813"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "tomcat:default_servlet_readonly=true",
+  "os": null,
+  "risk": 2,
+  "side_effects": "",
+  "rollback": "Restore the previous configuration value and reload the service.",
+  "source_url": "https://security-tracker.debian.org/tracker/CVE-2025-24813",
+  "note": ""
+ },
+ {
+  "id": "found-m_d2b148431e60",
+  "title": "Disable partial PUT support in Tomcat",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2025-24813"
+  ],
+  "fw_type": null,
+  "threat_ids": [],
+  "service": null,
+  "setting": "tomcat:default_servlet_allowpartialput=false",
+  "os": null,
+  "risk": 2,
+  "side_effects": "",
+  "rollback": "Restore the previous configuration value and reload the service.",
+  "source_url": "https://security-tracker.debian.org/tracker/CVE-2025-24813",
+  "note": ""
+ }
+]

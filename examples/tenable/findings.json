@@ -1,0 +1,26 @@
+[
+  {
+    "asset": {"uuid": "0b7c4d2e-5f1a-4c8e-9a3b-6d2f1e8c7a90"},
+    "plugin": {"id": 900001, "name": "OpenSSH < 9.8 race condition (synthetic plugin id)", "cve": ["CVE-2024-6387"]},
+    "port": {"port": 22, "protocol": "TCP", "service": "ssh"},
+    "severity": "high",
+    "state": "OPEN",
+    "output": "Installed version : 8.9p1\nFixed version : 9.8p1"
+  },
+  {
+    "asset": {"uuid": "0b7c4d2e-5f1a-4c8e-9a3b-6d2f1e8c7a90"},
+    "plugin": {"id": 22869, "name": "Software Enumeration (SSH)", "cve": []},
+    "port": {"port": 0, "protocol": "TCP"},
+    "severity": "info",
+    "state": "OPEN",
+    "output": "Here is the list of packages installed on the remote Debian Linux system :\n\n  ii  openssh-server  1:8.9p1-3ubuntu0.6  amd64  secure shell (SSH) server\n  ii  libssl3:amd64  3.0.2-0ubuntu1.15  amd64  Secure Sockets Layer toolkit\n  ii  sudo  1.9.9-1ubuntu2.4  amd64  Provide limited super user privileges\n"
+  },
+  {
+    "asset": {"uuid": "0b7c4d2e-5f1a-4c8e-9a3b-6d2f1e8c7a90"},
+    "plugin": {"id": 25221, "name": "Remote listeners enumeration (Linux / AIX)", "cve": []},
+    "port": {"port": 22, "protocol": "TCP"},
+    "severity": "info",
+    "state": "OPEN",
+    "output": "Process id   : 812\nExecutable   : /usr/sbin/sshd\nCommand line : sshd: /usr/sbin/sshd -D [listener]\nPort 22/tcp\n"
+  }
+]

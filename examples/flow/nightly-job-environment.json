@@ -1,0 +1,645 @@
+{
+  "label": "synthetic",
+  "zones": [
+    {
+      "id": "internet",
+      "name": "Internet",
+      "kind": "internet"
+    },
+    {
+      "id": "dmz",
+      "name": "DMZ",
+      "kind": "dmz",
+      "cidrs": [
+        "192.0.2.0/25"
+      ]
+    },
+    {
+      "id": "corp",
+      "name": "Corporate",
+      "kind": "corp",
+      "cidrs": [
+        "198.51.100.0/25"
+      ]
+    },
+    {
+      "id": "servers",
+      "name": "Servers",
+      "kind": "server",
+      "cidrs": [
+        "203.0.113.0/25"
+      ]
+    },
+    {
+      "id": "branch",
+      "name": "Branch office",
+      "kind": "corp"
+    }
+  ],
+  "devices": [
+    {
+      "id": "pa-edge",
+      "name": "Edge firewall",
+      "fw_type": "PaloAltoNGFW",
+      "version": "11.1.4",
+      "zones": [
+        "internet",
+        "dmz"
+      ],
+      "routes": [
+        {
+          "destination": "192.0.2.0/25",
+          "zone": "dmz"
+        },
+        {
+          "destination": "198.51.100.0/25",
+          "next_hop_device": "pa-core"
+        },
+        {
+          "destination": "203.0.113.0/25",
+          "next_hop_device": "pa-core"
+        },
+        {
+          "destination": "0.0.0.0/0",
+          "zone": "internet"
+        }
+      ],
+      "rules": [
+        {
+          "name": "web-published",
+          "from_zone": [
+            "internet"
+          ],
+          "to_zone": [
+            "dmz"
+          ],
+          "destination": [
+            "web-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "bastion-admin",
+          "from_zone": [
+            "internet"
+          ],
+          "to_zone": [
+            "dmz"
+          ],
+          "destination": [
+            "bastion-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "dns-published",
+          "from_zone": [
+            "internet"
+          ],
+          "to_zone": [
+            "dmz"
+          ],
+          "destination": [
+            "dc-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "temp-rdp",
+          "from_zone": [
+            "internet"
+          ],
+          "to_zone": [
+            "dmz"
+          ],
+          "destination": [
+            "dc-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "legacy-smb",
+          "from_zone": [
+            "internet"
+          ],
+          "to_zone": [
+            "dmz"
+          ],
+          "destination": [
+            "print-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "deny-rest",
+          "from_zone": [
+            "any"
+          ],
+          "to_zone": [
+            "any"
+          ],
+          "destination": [
+            "any"
+          ],
+          "action": "deny"
+        }
+      ]
+    },
+    {
+      "id": "pa-core",
+      "name": "Core firewall",
+      "fw_type": "PaloAltoNGFW",
+      "version": "11.1.4",
+      "zones": [
+        "dmz",
+        "corp",
+        "servers"
+      ],
+      "routes": [
+        {
+          "destination": "192.0.2.0/25",
+          "zone": "dmz"
+        },
+        {
+          "destination": "198.51.100.0/25",
+          "zone": "corp"
+        },
+        {
+          "destination": "203.0.113.0/25",
+          "zone": "servers"
+        },
+        {
+          "destination": "0.0.0.0/0",
+          "next_hop_device": "pa-edge"
+        }
+      ],
+      "rules": [
+        {
+          "name": "dmz-dns",
+          "from_zone": [
+            "dmz"
+          ],
+          "to_zone": [
+            "servers"
+          ],
+          "destination": [
+            "dc-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "temp-rdp-core",
+          "from_zone": [
+            "dmz"
+          ],
+          "to_zone": [
+            "servers"
+          ],
+          "destination": [
+            "dc-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "print-from-dmz",
+          "from_zone": [
+            "dmz"
+          ],
+          "to_zone": [
+            "servers"
+          ],
+          "destination": [
+            "print-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "corp-printing",
+          "from_zone": [
+            "corp"
+          ],
+          "to_zone": [
+            "servers"
+          ],
+          "destination": [
+            "print-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "corp-to-dc",
+          "from_zone": [
+            "corp"
+          ],
+          "to_zone": [
+            "servers"
+          ],
+          "destination": [
+            "dc-01"
+          ],
+          "action": "allow"
+        },
+        {
+          "name": "deny-rest",
+          "from_zone": [
+            "any"
+          ],
+          "to_zone": [
+            "any"
+          ],
+          "destination": [
+            "any"
+          ],
+          "action": "deny"
+        }
+      ]
+    },
+    {
+      "id": "rtr-branch",
+      "name": "Branch router",
+      "fw_type": "Router",
+      "threat_prevention": false,
+      "zones": [
+        "corp",
+        "branch"
+      ],
+      "routes": [
+        {
+          "destination": "198.51.100.128/25",
+          "zone": "branch"
+        },
+        {
+          "destination": "0.0.0.0/0",
+          "next_hop_device": "pa-core"
+        }
+      ],
+      "rules": [
+        {
+          "name": "routes-everything"
+        }
+      ]
+    }
+  ],
+  "hosts": [
+    {
+      "id": "web-01",
+      "name": "web-01",
+      "zone": null,
+      "ips": [
+        "192.0.2.10"
+      ],
+      "os": "Ubuntu 22.04",
+      "system_types": [
+        "general-purpose"
+      ],
+      "findings": [
+        {
+          "cve": "CVE-2025-24813",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "Apache Tomcat Remote Code Execution",
+          "family": "Web Servers",
+          "product": "Apache Tomcat",
+          "solution": "Upgrade Apache Tomcat.",
+          "has_patch": true,
+          "remote_check": true
+        },
+        {
+          "cve": "CVE-2024-1086",
+          "severity": "high",
+          "access_vector": "local",
+          "kev": true,
+          "ransomware": false,
+          "title": "Linux kernel privilege escalation",
+          "family": "Ubuntu Local Security Checks",
+          "product": "Linux Kernel",
+          "solution": "Update the kernel.",
+          "has_patch": true
+        }
+      ],
+      "processes": [
+        "java",
+        "nginx",
+        "sshd"
+      ]
+    },
+    {
+      "id": "bastion-01",
+      "name": "bastion-01",
+      "zone": null,
+      "ips": [
+        "192.0.2.20"
+      ],
+      "os": "Ubuntu 22.04",
+      "system_types": [
+        "general-purpose"
+      ],
+      "findings": [
+        {
+          "cve": "CVE-2024-6387",
+          "severity": "high",
+          "access_vector": "network",
+          "kev": false,
+          "ransomware": false,
+          "title": "OpenSSH Signal Handler Race (regreSSHion)",
+          "family": "Misc.",
+          "product": "OpenSSH",
+          "solution": "Upgrade OpenSSH.",
+          "has_patch": true
+        }
+      ],
+      "processes": [
+        "sshd"
+      ]
+    },
+    {
+      "id": "dc-01",
+      "name": "dc-01",
+      "zone": null,
+      "ips": [
+        "203.0.113.10"
+      ],
+      "os": "Windows Server 2008 R2",
+      "system_types": [
+        "general-purpose"
+      ],
+      "services": {
+        "dns": "running",
+        "termservice": "running"
+      },
+      "findings": [
+        {
+          "cve": "CVE-2020-1350",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "Microsoft DNS Server Remote Code Execution (SIGRed)",
+          "family": "DNS",
+          "product": "Microsoft Windows",
+          "solution": "Apply the July 2020 security update.",
+          "has_patch": true,
+          "remote_check": true
+        },
+        {
+          "cve": "CVE-2019-0708",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": true,
+          "title": "Remote Desktop Services Remote Code Execution (BlueKeep) (uncredentialed check)",
+          "family": "Windows",
+          "product": "Microsoft Remote Desktop Services",
+          "solution": "Apply the May 2019 security update.",
+          "has_patch": true,
+          "remote_check": true
+        },
+        {
+          "cve": "CVE-2022-30190",
+          "severity": "high",
+          "access_vector": "local",
+          "kev": true,
+          "ransomware": false,
+          "title": "Microsoft Support Diagnostic Tool (Follina)",
+          "family": "Windows : Microsoft Bulletins",
+          "product": "Microsoft Windows",
+          "solution": "Apply the June 2022 update.",
+          "has_patch": true
+        },
+        {
+          "cve": "CVE-2013-3900",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "WinVerifyTrust Signature Validation Mitigation",
+          "family": "Windows : Microsoft Bulletins",
+          "product": "Microsoft WinVerifyTrust",
+          "solution": "Enable EnableCertPaddingCheck.",
+          "has_patch": false
+        }
+      ],
+      "processes": [
+        "dns.exe",
+        "svchost.exe",
+        "system"
+      ]
+    },
+    {
+      "id": "print-01",
+      "name": "print-01",
+      "zone": null,
+      "ips": [
+        "203.0.113.20"
+      ],
+      "os": "Windows Server 2019",
+      "system_types": [
+        "general-purpose"
+      ],
+      "services": {
+        "spooler": "running"
+      },
+      "findings": [
+        {
+          "cve": "CVE-2021-34527",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "Windows Print Spooler Remote Code Execution (PrintNightmare)",
+          "family": "Windows : Microsoft Bulletins",
+          "product": "Microsoft Windows Print Spooler",
+          "solution": "Apply the July 2021 security update.",
+          "has_patch": true
+        },
+        {
+          "cve": "CVE-2013-3900",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "WinVerifyTrust Signature Validation Mitigation",
+          "family": "Windows : Microsoft Bulletins",
+          "product": "Microsoft WinVerifyTrust",
+          "solution": "Enable EnableCertPaddingCheck.",
+          "has_patch": false
+        }
+      ],
+      "processes": [
+        "spoolsv.exe",
+        "svchost.exe"
+      ]
+    },
+    {
+      "id": "hr-01",
+      "name": "hr-01",
+      "zone": null,
+      "ips": [
+        "198.51.100.10"
+      ],
+      "os": "Windows 10",
+      "system_types": [
+        "general-purpose"
+      ],
+      "findings": [
+        {
+          "cve": "CVE-2019-0708",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": true,
+          "title": "Remote Desktop Services Remote Code Execution (BlueKeep) (uncredentialed check)",
+          "family": "Windows",
+          "product": "Microsoft Remote Desktop Services",
+          "solution": "Apply the May 2019 security update.",
+          "has_patch": true,
+          "remote_check": true
+        },
+        {
+          "cve": "CVE-2021-34527",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "Windows Print Spooler Remote Code Execution (PrintNightmare)",
+          "family": "Windows : Microsoft Bulletins",
+          "product": "Microsoft Windows Print Spooler",
+          "solution": "Apply the July 2021 security update.",
+          "has_patch": true
+        }
+      ],
+      "processes": [
+        "svchost.exe",
+        "system"
+      ]
+    },
+    {
+      "id": "fin-01",
+      "name": "fin-01",
+      "zone": null,
+      "ips": [
+        "198.51.100.20"
+      ],
+      "os": "Ubuntu 20.04",
+      "system_types": [
+        "general-purpose"
+      ],
+      "findings": [
+        {
+          "cve": "CVE-2025-24813",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "Apache Tomcat Remote Code Execution",
+          "family": "Web Servers",
+          "product": "Apache Tomcat",
+          "solution": "Upgrade Apache Tomcat.",
+          "has_patch": true,
+          "remote_check": true
+        }
+      ],
+      "processes": [
+        "sshd"
+      ]
+    },
+    {
+      "id": "sw-01",
+      "name": "sw-01",
+      "zone": null,
+      "ips": [
+        "198.51.100.30"
+      ],
+      "os": "Cisco IOS XE",
+      "system_types": [
+        "switch"
+      ],
+      "local_checks": false,
+      "findings": [
+        {
+          "cve": "CVE-2023-20198",
+          "severity": "critical",
+          "access_vector": "network",
+          "kev": true,
+          "ransomware": false,
+          "title": "Cisco IOS XE Web UI Privilege Escalation",
+          "family": "CISCO",
+          "product": "Cisco IOS XE Web UI",
+          "solution": "Upgrade IOS XE.",
+          "has_patch": true,
+          "remote_check": true
+        }
+      ]
+    }
+  ],
+  "allowed_flows": [
+    {
+      "name": "Office printing",
+      "source_zone": "corp",
+      "host": "print-01",
+      "service": "spooler"
+    },
+    {
+      "name": "Corporate DNS",
+      "source_zone": "corp",
+      "host": "dc-01"
+    },
+    {
+      "name": "Public website",
+      "source_zone": "internet",
+      "host": "web-01"
+    },
+    {
+      "name": "Nightly zone transfer",
+      "source_zone": "dmz",
+      "host": "dc-01"
+    }
+  ],
+  "observed_traffic": [
+    {
+      "name": "Office printing",
+      "source_zone": "corp",
+      "host": "print-01",
+      "sessions": 1240
+    },
+    {
+      "name": "Corporate DNS",
+      "source_zone": "corp",
+      "host": "dc-01",
+      "sessions": 5210
+    },
+    {
+      "name": "Public website",
+      "source_zone": "internet",
+      "host": "web-01",
+      "sessions": 8800
+    },
+    {
+      "name": "SIGRed attempts",
+      "source_zone": "internet",
+      "host": "dc-01",
+      "sessions": 12,
+      "threat_ids": [
+        "58691"
+      ]
+    },
+    {
+      "name": "Public DNS lookups",
+      "source_zone": "internet",
+      "host": "dc-01",
+      "sessions": 640
+    },
+    {
+      "name": "Nightly zone transfer",
+      "source_zone": "dmz",
+      "host": "dc-01",
+      "sessions": 48,
+      "threat_ids": [
+        "58691"
+      ],
+      "only_after_change": true
+    }
+  ]
+}

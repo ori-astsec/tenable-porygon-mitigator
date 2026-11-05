@@ -1,0 +1,14 @@
+{
+  "name": "porygon",
+  "description": "Team Porygon's Claude Code plugins for vulnerability mitigation.",
+  "owner": {
+    "name": "Team Porygon contributors"
+  },
+  "plugins": [
+    {
+      "name": "porygon-mitigator",
+      "source": "./",
+      "description": "Verified, machine-specific compensating controls for CVEs you can't patch yet."
+    }
+  ]
+}

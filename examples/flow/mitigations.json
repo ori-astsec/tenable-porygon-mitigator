@@ -1,0 +1,92 @@
+[
+ {
+  "id": "sigred-ips",
+  "title": "Block SIGRed with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2020-1350"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "58691",
+   "59168",
+   "92191"
+  ],
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2020-1350"
+ },
+ {
+  "id": "bluekeep-ips",
+  "title": "Block BlueKeep with a Palo Alto threat signature",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2019-0708"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "55815"
+  ],
+  "risk": 2,
+  "side_effects": "A blocking action resets matching sessions on every rule using the profile, including false positives.",
+  "rollback": "Remove the profile from the rule, or set the threat exception back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2019-0708"
+ },
+ {
+  "id": "tomcat-ips",
+  "title": "Block Tomcat CVE-2025-24813 with Palo Alto threat signatures",
+  "kind": "ips_threat_ids",
+  "cve_ids": [
+   "CVE-2025-24813"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "threat_ids": [
+   "96079",
+   "96676"
+  ],
+  "risk": 2,
+  "side_effects": "Signatures can't match encrypted payloads unless TLS is decrypted first.",
+  "rollback": "Remove the profile from the rule, or set the threat exceptions back to default.",
+  "source_url": "https://threatvault.paloaltonetworks.com/?query=CVE-2025-24813"
+ },
+ {
+  "id": "spooler-disable",
+  "title": "Stop and disable the Print Spooler",
+  "kind": "disable_service",
+  "cve_ids": [
+   "CVE-2021-34527"
+  ],
+  "service": "spooler",
+  "risk": 3,
+  "side_effects": "Printing stops on this machine, locally and remotely.",
+  "rollback": "Set the Print Spooler service back to automatic and start it.",
+  "source_url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527"
+ },
+ {
+  "id": "spooler-dmz-acl",
+  "title": "Block DMZ traffic to the print server",
+  "kind": "acl_block",
+  "cve_ids": [
+   "CVE-2021-34527"
+  ],
+  "fw_type": "PaloAltoNGFW",
+  "risk": 2,
+  "side_effects": "Nothing in the DMZ can reach this server, so printing through it from there stops.",
+  "rollback": "Delete the added rule.",
+  "source_url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-34527"
+ },
+ {
+  "id": "winverifytrust-registry",
+  "title": "Enable strict WinVerifyTrust signature checks",
+  "kind": "host_setting",
+  "cve_ids": [
+   "CVE-2013-3900"
+  ],
+  "setting": "HKLM\\Software\\Microsoft\\Cryptography\\Wintrust\\Config\\EnableCertPaddingCheck=1",
+  "risk": 2,
+  "side_effects": "Binaries with non-compliant signatures may show as unsigned.",
+  "rollback": "Delete the registry value.",
+  "source_url": "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2013-3900"
+ }
+]

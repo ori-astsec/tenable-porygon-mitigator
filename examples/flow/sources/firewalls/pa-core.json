@@ -1,0 +1,216 @@
+{
+ "address_objects": {
+  "addr-dc-01": {
+   "ip_netmask": "203.0.113.10/32"
+  },
+  "addr-print-01": {
+   "ip_netmask": "203.0.113.20/32"
+  }
+ },
+ "display_name": "Core firewall",
+ "hostname": "pa-core",
+ "security_rules": [
+  {
+   "action": "allow",
+   "application": [
+    "dns"
+   ],
+   "destination": [
+    "addr-dc-01"
+   ],
+   "from": [
+    "dmz"
+   ],
+   "name": "dmz-dns",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "servers"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ms-rdp"
+   ],
+   "destination": [
+    "addr-dc-01"
+   ],
+   "from": [
+    "dmz"
+   ],
+   "name": "temp-rdp-core",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "servers"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ms-ds-smb"
+   ],
+   "destination": [
+    "addr-print-01"
+   ],
+   "from": [
+    "dmz"
+   ],
+   "name": "print-from-dmz",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "servers"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "ms-ds-smb"
+   ],
+   "destination": [
+    "addr-print-01"
+   ],
+   "from": [
+    "corp"
+   ],
+   "name": "corp-printing",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "servers"
+   ]
+  },
+  {
+   "action": "allow",
+   "application": [
+    "dns",
+    "ms-rdp",
+    "ms-ds-smb"
+   ],
+   "destination": [
+    "addr-dc-01"
+   ],
+   "from": [
+    "corp"
+   ],
+   "name": "corp-to-dc",
+   "service": [
+    "application-default"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "servers"
+   ]
+  },
+  {
+   "action": "deny",
+   "application": [
+    "any"
+   ],
+   "destination": [
+    "any"
+   ],
+   "from": [
+    "any"
+   ],
+   "name": "deny-rest",
+   "service": [
+    "any"
+   ],
+   "source": [
+    "any"
+   ],
+   "to": [
+    "any"
+   ]
+  }
+ ],
+ "service_objects": {},
+ "sw_version": "11.1.4",
+ "threat_prevention_license": true,
+ "type": "PaloAltoNGFW",
+ "virtual_router": {
+  "name": "default",
+  "routes": [
+   {
+    "destination": "192.0.2.0/25",
+    "nexthop_device": null,
+    "zone": "dmz"
+   },
+   {
+    "destination": "198.51.100.0/25",
+    "nexthop_device": null,
+    "zone": "corp"
+   },
+   {
+    "destination": "203.0.113.0/25",
+    "nexthop_device": null,
+    "zone": "servers"
+   },
+   {
+    "destination": "0.0.0.0/0",
+    "nexthop_device": "pa-edge",
+    "zone": null
+   }
+  ]
+ },
+ "vulnerability_profiles": {},
+ "zones": [
+  {
+   "attacker_vantage": null,
+   "cidrs": [
+    "192.0.2.0/25"
+   ],
+   "display_name": "DMZ",
+   "interfaces": [
+    "ethernet1/1"
+   ],
+   "kind": "dmz",
+   "name": "dmz"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [
+    "198.51.100.0/25"
+   ],
+   "display_name": "Corporate",
+   "interfaces": [
+    "ethernet1/2"
+   ],
+   "kind": "corp",
+   "name": "corp"
+  },
+  {
+   "attacker_vantage": null,
+   "cidrs": [
+    "203.0.113.0/25"
+   ],
+   "display_name": "Servers",
+   "interfaces": [
+    "ethernet1/3"
+   ],
+   "kind": "server",
+   "name": "servers"
+  }
+ ]
+}

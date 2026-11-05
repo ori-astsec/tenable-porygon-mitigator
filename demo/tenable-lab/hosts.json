@@ -1,0 +1,18 @@
+{
+  "description": "The eight Tenable partner-lab hosts in the simulated network. Only the firewall placement is simulated: the router and every host are real lab assets, under random names, addresses and asset ids.",
+  "network_path": [
+    {"role": "ngfw", "vendor": "Palo Alto Networks", "product": "PA-820", "version": "11.1.1",
+     "capabilities": ["threat_prevention"]},
+    {"role": "router", "vendor": "unknown", "product": "lab router"}
+  ],
+  "hosts": [
+    {"name": "dc-2c52", "asset_id": "09a4fd57-dcad-45b3-80ed-d034b58bbb23", "platform": "windows", "segment": "Windows servers"},
+    {"name": "sql-647e", "asset_id": "078f9bc5-4852-4b9d-83d9-d7ad7088cbce", "platform": "windows", "segment": "Windows servers"},
+    {"name": "srv-2539", "asset_id": "cbb70b43-0177-4a32-8d1f-d205c574da22", "platform": "windows", "segment": "Windows servers"},
+    {"name": "wks-7705", "asset_id": "8d065499-6686-4b20-9aea-0e3813559968", "platform": "windows", "segment": "Workstations"},
+    {"name": "wks-90cc", "asset_id": "2bdbbeaf-e031-4565-a055-b98d7a524f26", "platform": "windows", "segment": "Workstations"},
+    {"name": "ubu-8ced", "asset_id": "4230ae64-641d-4067-a423-860ff6a5aa28", "platform": "linux", "segment": "Linux servers"},
+    {"name": "cent-fa5b", "asset_id": "665ac92f-9986-4675-bb96-98d039a9b4e8", "platform": "linux", "segment": "Linux servers"},
+    {"name": "ubu-a393", "asset_id": "f70fd29a-b011-4aac-adf1-f3736abf547d", "platform": "linux", "segment": "Linux servers"}
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "name": "bastion-01.example.internal",
+  "os": {
+    "platform": "linux",
+    "name": "Ubuntu 22.04.4 LTS",
+    "version": "22.04",
+    "distribution": "ubuntu",
+    "kernel": "5.15.0-105-generic"
+  },
+  "roles": ["ssh_bastion"],
+  "installed_software": [
+    {"cpe": "cpe:/a:openbsd:openssh:8.9p1", "package": "openssh-server", "version": "1:8.9p1-3ubuntu0.6"},
+    {"cpe": "cpe:/a:openssl:openssl:3.0.2", "package": "libssl3", "version": "3.0.2-0ubuntu1.15"},
+    {"cpe": "cpe:/a:sudo_project:sudo:1.9.9", "package": "sudo", "version": "1.9.9-1ubuntu2.4"}
+  ],
+  "open_ports": [
+    {"port": 22, "protocol": "tcp", "service_names": ["ssh"], "internet_exposed": true}
+  ],
+  "internet_exposed": true,
+  "network_path": [
+    {"role": "ngfw", "vendor": "Palo Alto Networks", "product": "PA-3220", "version": "10.2.9", "capabilities": ["threat_prevention"]}
+  ],
+  "security_tools": [
+    {"category": "edr", "vendor": "CrowdStrike", "product": "Falcon Sensor"}
+  ],
+  "findings": [],
+  "config_state": {
+    "app_settings": {"openssh:logingracetime": "120"},
+    "sysctl": {"kernel.unprivileged_userns_clone": "1", "user.max_user_namespaces": "63216"},
+    "services": {"ssh": "running"},
+    "kernel_modules_loaded": ["nf_tables", "overlay", "br_netfilter"]
+  },
+  "source": "manual"
+}

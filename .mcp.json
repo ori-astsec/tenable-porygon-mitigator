@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "porygon": {
+      "command": "uv",
+      "args": ["run", "--directory", "${CLAUDE_PLUGIN_ROOT}", "porygon-mcp"]
+    }
+  }
+}

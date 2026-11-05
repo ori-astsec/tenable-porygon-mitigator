@@ -1,0 +1,33 @@
+{
+  "name": "WS-FIN-042",
+  "os": {
+    "platform": "windows",
+    "name": "Microsoft Windows 10 Enterprise 21H2",
+    "version": "10.0.19044.1706",
+    "distribution": "windows"
+  },
+  "roles": ["workstation"],
+  "installed_software": [
+    {"vendor": "Microsoft", "product": "Microsoft 365 Apps for enterprise", "version": "16.0.14931.20132"},
+    {"vendor": "Microsoft", "product": "Outlook", "version": "16.0.14931.20132"},
+    {"vendor": "Google", "product": "Chrome", "version": "101.0.4951.67", "cpe": "cpe:/a:google:chrome:101.0.4951.67"}
+  ],
+  "open_ports": [
+    {"port": 445, "protocol": "tcp", "service_names": ["microsoft-ds"], "internet_exposed": false},
+    {"port": 135, "protocol": "tcp", "service_names": ["msrpc"], "internet_exposed": false}
+  ],
+  "internet_exposed": false,
+  "network_path": [
+    {"role": "ngfw", "vendor": "Fortinet", "product": "FortiGate 100F", "version": "7.2.8", "capabilities": ["ips"]}
+  ],
+  "security_tools": [
+    {"category": "edr", "vendor": "Microsoft", "product": "Defender for Endpoint"},
+    {"category": "av", "vendor": "Microsoft", "product": "Defender Antivirus"}
+  ],
+  "findings": [],
+  "config_state": {
+    "registry": {"hkcr\\ms-msdt": "URL:ms-msdt"},
+    "services": {"spooler": "running", "webclient": "stopped"}
+  },
+  "source": "manual"
+}
